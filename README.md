@@ -95,11 +95,3 @@ The 2.5s processing delay makes this easy to trigger by hand:
 | POST   | `/api/reset`    | Reset all state (for re-running the demo)             |
 | WS     | `/`             | `shipment_assigned`, `market_update`, `full_reset`    |
 
-## Known limitations (kept intentionally simple)
-
-- State lives in memory — restarting the backend clears everything.
-- The lock is per-process; this would need a different approach (e.g.
-  Postgres row locks, or a proper distributed lock) behind a load balancer
-  with multiple Node instances.
-- No auth — every tab is treated as an anonymous coordinator, which matches
-  the brief.
